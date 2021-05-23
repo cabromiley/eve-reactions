@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useActiveOres } from "./hooks/ores";
+import data from './data';
+import Ore from "./components/Ore";
+import RefinedOre from "./components/RefinedOre";
+import SimpleReaction from "./components/SimpleReaction";
 
-function App() {
+export default function App() {
+  const { ores, simple } = data()
+  const [activeOres, toggleOre] = useActiveOres()
+  const refinedMaterials = calculateRefinedMaterials(ores, activeOres)
+  const activeSimpleReactions = calculateSimpleReactions(simple, refinedMaterials)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="grid grid-flow-row grid-cols-4 gap-8">
+      <Ore ores={ores} toggleOre={toggleOre} activeOres={activeOres} />
+
+      <RefinedOre refinedMaterials={refinedMaterials} />
+
+      <SimpleReaction reactions={activeSimpleReactions} />
     </div>
   );
 }
 
-export default App;
+function calculateRefinedMaterials(ores, activeOres) {
+  const unique = (value, index, self) => self.indexOf(value) === index
+
+  return ores
+    .filter((ore) => activeOres.includes(ore.name))
+    .map(ore => ore.goo.map(goo => goo.name))
+    .flat()
+    .filter(unique)
+    .sort();
+}
+
+function calculateSimpleReactions(simple, refinedMaterials) {
+  const filterRequirements = (requirement) => !refinedMaterials.includes(requirement)
+
+  return simple.filter(reaction => reaction.requirements.filter(filterRequirements).length === 0)
+}
