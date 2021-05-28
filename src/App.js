@@ -5,10 +5,11 @@ import RefinedOre from "./components/RefinedOre";
 import SimpleReaction from "./components/SimpleReaction";
 
 export default function App() {
-  const { ores, simple } = data()
+  const { ores, simple, composite } = data()
   const [activeOres, toggleOre] = useActiveOres()
   const refinedMaterials = calculateRefinedMaterials(ores, activeOres)
   const activeSimpleReactions = calculateSimpleReactions(simple, refinedMaterials)
+  const activeCompositeReations = calculateCompositeReactions(composite, activeSimpleReactions)
 
   return (
     <div className="grid grid-flow-row grid-cols-4 gap-8">
@@ -17,6 +18,8 @@ export default function App() {
       <RefinedOre refinedMaterials={refinedMaterials} />
 
       <SimpleReaction reactions={activeSimpleReactions} />
+
+      <SimpleReaction reactions={activeCompositeReations} />
     </div>
   );
 }
@@ -32,8 +35,15 @@ function calculateRefinedMaterials(ores, activeOres) {
     .sort();
 }
 
-function calculateSimpleReactions(simple, refinedMaterials) {
-  const filterRequirements = (requirement) => !refinedMaterials.includes(requirement)
+function calculateSimpleReactions(reactions, availableIngrediants) {
+  const filterRequirements = (requirement) => !availableIngrediants.includes(requirement)
 
-  return simple.filter(reaction => reaction.requirements.filter(filterRequirements).length === 0)
+  return reactions.filter(reaction => reaction.requirements.filter(filterRequirements).length === 0)
+}
+
+function calculateCompositeReactions(reactions, availableIngrediants) {
+  const availableIngrediantsList = availableIngrediants.map(i => i.name)
+  const filterRequirements = (requirement) => !availableIngrediantsList.includes(requirement)
+
+  return reactions.filter(reaction => reaction.requirements.filter(filterRequirements).length === 0)
 }

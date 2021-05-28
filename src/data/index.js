@@ -163,6 +163,72 @@ export default function data() {
         name: "Crystallite Alloy",
         requirements: ["Cadmium", "Cobalt"],
       },
+      {
+        name: "Dysporite",
+        requirements: ["Dysprosium", "Mercury"],
+      },
+      {
+        name: "Fernite Alloy",
+        requirements: ["Scandium", "Vanadium"],
+      },
+      {
+        name: "Ferrofluid",
+        requirements: ["Dysprosium", "Hafnium"],
+      },
+      {
+        name: "Fluxed Condensates",
+        requirements: ["Neodymium", "Thulium"],
+      },
+      {
+        name: "Hexite",
+        requirements: ["Chromium", "Platinum"],
+      },
+      {
+        name: "Hyperflurite",
+        requirements: ["Promethium", "Vanadium"],
+      },
+      {
+        name: "Neo Mercurite",
+        requirements: ["Mercury", "Neodymium"],
+      },
+      {
+        name: "Platinum Technite",
+        requirements: ["Platinum", "Technetium"],
+      },
+      {
+        name: "Prometium",
+        requirements: ["Cadmium", "Promethium"],
+      },
+      {
+        name: "Rolled Tungsten Alloy",
+        requirements: ["Platnium", "Tungsten"],
+      },
+      {
+        name: "Silicon Diborite",
+        requirements: ["Evaporite Deposits", "Silicates"],
+      },
+      {
+        name: "Solerium",
+        requirements: ["Caesium", "Chromium"],
+      },
+      {
+        name: "Sulfuric Acid",
+        requirements: ["Atmospheric Gasses", "Evaporite Deposits"],
+      },
+      {
+        name: "Titanium Chromide",
+        requirements: ["Chromium", "Titanium"],
+      },
+      {
+        name: "Vanadium Hafnite",
+        requirements: ["Hafnium", "Vanadium"],
+      },
     ],
+    composite: [
+      {
+        name: "Crystalline Carbonide",
+        requirements: ["Crystallite Alloy", "Carbon Polymers"],
+      },
+    ]
   };
 }
