@@ -12,14 +12,22 @@ export default function App() {
   const activeCompositeReations = calculateCompositeReactions(composite, activeSimpleReactions)
 
   return (
-    <div className="grid grid-flow-row grid-cols-4 gap-8">
-      <Ore ores={ores} toggleOre={toggleOre} activeOres={activeOres} />
+    <div className="container mx-auto mt-8">
+      <div className="my-4">
+        <h1 className="text-lg font-bold">Reaction Chart</h1>
+        <div>
+          Select the moon ores you have available and the chart will populate what you can do with your ore
+        </div>
+      </div>
+      <div className="grid grid-flow-row grid-cols-4">
+        <Ore ores={ores} toggleOre={toggleOre} activeOres={activeOres} />
 
-      <RefinedOre refinedMaterials={refinedMaterials} />
+        <RefinedOre refinedMaterials={refinedMaterials} title="Refined ore" />
 
-      <SimpleReaction reactions={activeSimpleReactions} />
+        <SimpleReaction reactions={activeSimpleReactions} title="Simple reaction" />
 
-      <SimpleReaction reactions={activeCompositeReations} />
+        <SimpleReaction reactions={activeCompositeReations} title="Composite Reaction" />
+      </div>
     </div>
   );
 }

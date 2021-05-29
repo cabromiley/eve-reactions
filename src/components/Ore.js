@@ -8,7 +8,11 @@ function Ore({ ores, activeOres, toggleOre }) {
     ></Item>
   ));
 
-  return <div>{oreList}</div>;
+  return (
+    <div>
+      <h3 className="block bg-blue-600 p-2 text-white">Moon Ores</h3>
+      {oreList}
+    </div>);
 }
 
 function Item({ oreName, active, addActive }) {
@@ -16,8 +20,8 @@ function Item({ oreName, active, addActive }) {
     <button
       onClick={() => addActive(oreName)}
       className={
-        "block p-2 cursor-pointer select-none focus:outline-none " +
-        (active ? "text-green-500" : "")
+        "block p-2 select-none focus:outline-none " +
+        (active ? "text-green-500 hover:text-red-700" : "hover:text-green-700")
       }
     >
       {oreName}
