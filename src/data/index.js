@@ -229,6 +229,62 @@ export default function data() {
         name: "Crystalline Carbonide",
         requirements: ["Crystallite Alloy", "Carbon Polymers"],
       },
+      {
+        name: "Fermionic Condensates",
+        requirements: ["Caesarium Cadmide", "Dysporite", "Fluxed Condensates"],
+      },
+      {
+        name: "Fernite Carbide",
+        requirements: ["Fernite Alloy", "Ceramic Powder"],
+      },
+      {
+        name: "Ferrogel",
+        requirements: ["Hexite", "Hyperflurite", "Ferrofluid", "Prometium"],
+      },
+      {
+        name: "Fullerides",
+        requirements: ["Carbon Polymers", "Platinum Technite"],
+      },
+      {
+        name: "Hypersynaptic Fibers",
+        requirements: ["Vanadium Hafnite", "Solerium", "Dysporite"],
+      },
+      {
+        name: "Nanotransistors",
+        requirements: ["Sulfuric Acid", "Platinum technite", "Neo Mercurite"],
+      },
+      {
+        name: "Nonlinear Metamaterials",
+        requirements: ["Titanium Chromide", "Ferrofluid"],
+      },
+      {
+        name: "Phenolic Composites",
+        requirements: ["Silicon Diborite", "Caesarium Cadmide", "Vanadium Hafnite"],
+      },
+      {
+        name: "Photonic Metamaterials",
+        requirements: ["Crystallite Alloy", "Thulium Hafnite"],
+      },
+      {
+        name: "Plasmonic Metamaterials",
+        requirements: ["Fernite Alloy", "Neo Mercurite"],
+      },
+      {
+        name: "Sylramic Fibers",
+        requirements: ["Ceramic Powder", "Hexite"],
+      },
+      {
+        name: "Terahertz Metamaterials",
+        requirements: ["Rolled Tungsten Alloy", "Promethium Mercurite"],
+      },
+      {
+        name: "Titanium Carbide",
+        requirements: ["Titanium Chromide", "Silicon Diborite"],
+      },
+      {
+        name: "Tungsten Carbide",
+        requirements: ["Rolled Tungsten Alloy", "Sulfuric Acid"],
+      },
     ]
   };
 }
